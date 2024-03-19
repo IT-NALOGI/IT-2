@@ -1,4 +1,4 @@
-name: Java CI
+name: Quarkus CI
 
 on:
   push:
@@ -19,7 +19,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build and Test with Maven
+    - name: Build and Test with Quarkus
       run: |
-        mvn -B package --file pom.xml
-        mvn test
+        ./mvnw clean package -DskipTests=false
