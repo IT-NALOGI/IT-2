@@ -25,6 +25,7 @@ public class Rental extends PanacheMongoEntity {
     public Rental(String rentalId, String user123, String avto456, LocalDate parse, LocalDate parse1, String active) {
     }
 
+
     public String getUserId() {
         return userId;
     }
