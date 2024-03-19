@@ -25,6 +25,7 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
 
-    - name: Build and test with Maven
-      working-directory: ./membership-service
-      run: mvn -B clean install
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    - name: Test with Maven
+      run: mvn test
