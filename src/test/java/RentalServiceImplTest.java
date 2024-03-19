@@ -37,6 +37,7 @@ public class RentalServiceImplTest {
                 .setEndDate("2024-04-30")
                 .build();
 
+
         // Mock repository behavior
         RentalRepository rentalRepository = mock(RentalRepository.class);
         doNothing().when(rentalRepository).persistOrUpdate(any(Rental.class));
