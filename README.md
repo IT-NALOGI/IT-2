@@ -1,6 +1,6 @@
 # Avto Service 2
 
-This service is responsible for [describe what the service does briefly].
+This service is responsible for Getting the rents creating rents and managing the rents of the cars
 
 ## Getting Started
 
