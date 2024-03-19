@@ -32,13 +32,10 @@ docker-compose up
 This will start the service and make it available at http://localhost:8081.
 
 Usage
-[Explain how to use the service, including any endpoints, parameters, or configurations.]
+
 
 Contributing
-[If applicable, provide guidelines for contributing to the project.]
 
 License
-[Specify the license for the project.]
 
 Acknowledgments
-[If applicable, acknowledge any third-party libraries, tutorials, or resources used in the project.]
