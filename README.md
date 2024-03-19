@@ -1,66 +1,44 @@
-# code-with-quarkus
+# Avto Service 2
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This service is responsible for [describe what the service does briefly].
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Getting Started
 
-## Running the application in dev mode
+These instructions will help you set up and run the Avto Service 2 on your local machine for development and testing purposes.
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+### Prerequisites
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+Before running this service, make sure you have the following installed:
 
-## Packaging and running the application
+- Docker
+- Docker Compose
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+### Installing
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+To install and run the Avto Service 2, follow these steps:
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
+1. Clone the repository to your local machine:
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+   ```bash
+   git clone <repository-url>
 
-## Creating a native executable
 
-You can create a native executable using: 
-```shell script
-./mvnw package -Dnative
-```
+cd <project-directory>
+docker build -t avto-service2 .
+Running the Service
+To run the Avto Service 2, use the following command:
+docker-compose up
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
+This will start the service and make it available at http://localhost:8081.
 
-You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
+Usage
+[Explain how to use the service, including any endpoints, parameters, or configurations.]
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
+Contributing
+[If applicable, provide guidelines for contributing to the project.]
 
-## Related Guides
+License
+[Specify the license for the project.]
 
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-
-## Provided Code
-
-### gRPC
-
-Create your first gRPC service
-
-[Related guide section...](https://quarkus.io/guides/grpc-getting-started)
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+Acknowledgments
+[If applicable, acknowledge any third-party libraries, tutorials, or resources used in the project.]
