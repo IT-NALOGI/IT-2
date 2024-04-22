@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-    - name: Build and push Docker image
+    - name: Build and push Docker JVM image
       run: |
-        docker build -t blazhe/it-2:latest .
-        docker push blazhe/it-2:latest
+        docker build -f src/main/docker/Dockerfile.jvm -t blazhe/it-2-jvm:latest .
+        docker push blazhe/it-2-jvm:latest
