@@ -1,4 +1,4 @@
-name: Run Tests and Push Docker Image
+name: Build and Push Docker Image
 
 on:
   push:
@@ -6,32 +6,19 @@ on:
       - master
 
 jobs:
-  build:
+  docker:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Start MongoDB
-      uses: supercharge/mongodb-github-action@1.10.0
-      with:
-        mongodb-version: 7.0.6
-
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
       
-    - name: Test with Maven
-      run: mvn test
-
-    # Login to Docker Hub
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-    # Build and push Docker image
     - name: Build and push Docker image
       run: |
         docker build -t your-dockerhub-username/it-2:latest .
