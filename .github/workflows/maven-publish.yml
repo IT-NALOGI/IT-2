@@ -13,10 +13,6 @@ jobs:
     services:
       mongodb:
         image: mongo:latest
-        env:
-          MONGO_INITDB_DATABASE: rental
-          MONGO_INITDB_ROOT_USERNAME: mongo
-          MONGO_INITDB_ROOT_PASSWORD: mongo
         ports:
           - 27017:27017
         options: >-
