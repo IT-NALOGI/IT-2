@@ -4,7 +4,6 @@ import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import io.quarkus.grpc.GrpcService;
 import jakarta.inject.Inject;
-import avto.rent.RentalServiceGrpc;
 import avto.rent.model.Rental;
 import avto.rent.*;
 import avto.rent.repository.RentalRepository;
@@ -15,9 +14,9 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 
 @GrpcService
-public class RentalServiceImpl extends RentalServiceGrpc.RentalServiceImplBase {
+public class RentalCommandServiceImpl extends RentalCommandServiceGrpc.RentalCommandServiceImplBase {
 
-    private static final Logger logger = LoggerFactory.getLogger(RentalServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(RentalCommandServiceImpl.class);
 
     @Inject
     public RentalRepository rentalRepository;
@@ -42,22 +41,6 @@ public class RentalServiceImpl extends RentalServiceGrpc.RentalServiceImplBase {
         }
     }
 
-    @Override
-    public void getRental(GetRentalRequest request, StreamObserver<RentalResponse> responseObserver) {
-        try {
-            ObjectId objectId = new ObjectId(request.getRentalId());
-            Rental rental = rentalRepository.findById(objectId);
-            if (rental != null) {
-                RentalResponse response = buildRentalResponse(rental);
-                responseObserver.onNext(response);
-                responseObserver.onCompleted();
-            } else {
-                responseObserver.onError(Status.NOT_FOUND.asRuntimeException());
-            }
-        } catch (Exception e) {
-            responseObserver.onError(Status.INTERNAL.withDescription(e.getMessage()).asRuntimeException());
-        }
-    }
 
     @Override
     public void updateRental(UpdateRentalRequest request, StreamObserver<RentalResponse> responseObserver) {

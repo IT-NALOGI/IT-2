@@ -5,18 +5,15 @@ option java_package = "avto.rent";
 option java_outer_classname = "RentralGrpcProto";
 
 // The rental service definition.
-service RentalService {
-  // Create a new rental (POST)
+
+service RentalCommandService {
   rpc CreateRental (CreateRentalRequest) returns (RentalResponse);
-
-  // Get a rental by ID (GET)
-  rpc GetRental (GetRentalRequest) returns (RentalResponse);
-
-  // Update a rental (PUT)
   rpc UpdateRental (UpdateRentalRequest) returns (RentalResponse);
-
-  // Delete a rental (DELETE)
   rpc DeleteRental (DeleteRentalRequest) returns (RentalResponse);
+}
+
+service RentalQueryService {
+  rpc GetRental (GetRentalRequest) returns (RentalResponse);
 }
 
 // Request to create a rental
